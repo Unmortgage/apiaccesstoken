@@ -7,8 +7,8 @@ apiaccesstoken
 Introduction
 ------------
 
-Secure Token Authorisation Middleware for Pyramid / Wsgi Based Web apps. It
-uses Mozilla's tokenlib_ to provide strong protection.
+Secure token authorisation for Pyramid / Repoze based webapps. It uses
+Mozilla's tokenlib_ to provide strong protection.
 
 This library provides the middleware and token validation. It does not provide
 a token / user detail storage backend. It allows you to configure callbacks
