@@ -104,7 +104,7 @@ Success! Now lets try to access the service with a token we know nothing about::
      </body>
     </html>(t2)
 
-No, not access allowed.
+No, no access allowed.
 
 
 Generating Secret & Access Tokens
@@ -113,7 +113,7 @@ Generating Secret & Access Tokens
 When this library is set up it installs a tokenhelper command line tool. You
 can look at its source code in apiaccesstoken.scripts.tokenhelper.
 
-The tokens used in the example where generated as follows::
+The tokens used in the example were generated as follows::
 
     # For the "bob"
     #
@@ -143,8 +143,7 @@ Development
 Dev Env Set Up
 ~~~~~~~~~~~~~~
 
-A typical dev environment for this project using Virtualenv_ and
-Virtualenvwrapper_ is:
+A typical dev environment for this project using Virtualenv_ and Virtualenvwrapper_ is:
 
 .. sourcecode:: bash
 
