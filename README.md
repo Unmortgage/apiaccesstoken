@@ -136,6 +136,16 @@ The tokens used in the example were generated as follows::
     New access token is:
         eyJleHBpcmVzIjogMTAsICJzYWx0IjogIjAxOTdlZiIsICJpZGVudGl0eSI6ICJhbGljZSJ9yaJ_zX9TIfC650kbhiE1mS3GfYME6sZZ7IYP6s4BY0cADrqHd_yaVISnKV5E7cwT42mJjRk8_zkoesYk5YC4FA==
 
+Alternatively you can generate an access token and secret pair in one step as
+follows::
+
+    $ tokenhelper make_for_username  henry
+    For username 'henry' the new token pair is:
+    access token is:
+        eyJleHBpcmVzIjogMTAsICJzYWx0IjogIjc5ZjM3NSIsICJpZGVudGl0eSI6ICJoZW5yeSJ9TNbfsLfOaTPJFlMbFLLM6QJvK2UKc6rSeAq-1H5p-PkxWbwl2hO03LFAbFi_5taS6OqikH-KYa28FSZFnImMXA==
+    access secret is:
+        7730971adde5ef976fe7022e6278e46c208efcd6e8ec3dfac2727401a1c0a1f449be61e664332829d0c2ff3dac07974e0799a7695de393b41dee47138066e257
+
 
 Development
 -----------

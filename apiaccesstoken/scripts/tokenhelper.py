@@ -47,6 +47,33 @@ class HelperCmds(cmdln.Cmdln):
         at = man.generate_access_token(identity=username)
         print("New access token is:\n\t{}".format(at))
 
+    def do_make_for_username(
+        self, subcmd, opts, username
+    ):
+        """${cmd_name}: Generate the access secret and token for the given
+        username.
+
+        The username fields could be a database unique ID or something else
+        which the server side can work with. This username is stored securely
+        in the token payload.
+
+        ${cmd_usage}
+        ${cmd_option_list}
+
+        """
+        access_secret = Manager.generate_secret()
+        man = Manager(access_secret)
+        access_token = man.generate_access_token(identity=username)
+        print(
+            (
+                "For username '{}' the new token pair is:\n"
+                "access token is:\n\t{}"
+                "access secret is:\n\t{}"
+            ).format(
+                username, access_token, access_secret
+            )
+        )
+
 
 def main():
     """tokenhelper main with setup tools uses."""
