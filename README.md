@@ -1,6 +1,9 @@
 apiaccesstoken
 ==============
 
+.. image:: https://travis-ci.org/oisinmulvihill/apiaccesstoken.svg?branch=master
+    :target: https://travis-ci.org/oisinmulvihill/apiaccesstoken
+
 .. contents::
 
 
