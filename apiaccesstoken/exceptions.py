@@ -4,7 +4,7 @@
 try:
     from pyramid.httpexceptions import HTTPForbidden
 
-except ImportError, e:
+except ImportError:
 
     class HTTPForbidden(Exception):
         """403 Access Denied."""

@@ -38,6 +38,7 @@ class Client(object):
         resp.raise_for_status()
         print(resp.content)
 
+
 if __name__ == '__main__':
     api = Client()
     api.public()

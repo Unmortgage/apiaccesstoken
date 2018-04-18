@@ -3,6 +3,7 @@
 """
 import os
 import hashlib
+import binascii
 
 import tokenlib
 
@@ -34,7 +35,9 @@ class Manager(object):
     def generate_secret(cls):
         """Generate a master secret that can be used in Manager's config.
         """
-        return os.urandom(cls.SECRET_LENGTH).encode('hex')
+        return binascii.hexlify(
+            os.urandom(cls.SECRET_LENGTH)
+        ).decode()
 
     def generate_access_token(self, identity):
         """Generate an access token which can later be verified.
@@ -58,7 +61,7 @@ class Manager(object):
         try:
             payload = self.tman.parse_token(access_token, now=5)
 
-        except ValueError, e:
-            raise AccessTokenInvalid(e)
+        except ValueError as error:
+            raise AccessTokenInvalid(str(error))
 
         return payload

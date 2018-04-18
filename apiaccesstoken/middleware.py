@@ -102,9 +102,9 @@ class TokenMiddleware(object):
                     )
                 )
 
-        except AccessTokenInvalid, e:
+        except AccessTokenInvalid as error:
             log.error(
-                "token validation fail: '{}'".format(e)
+                "token validation fail: '{}'".format(error)
             )
 
     def token_extract(self, header_value):

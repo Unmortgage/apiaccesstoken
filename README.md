@@ -7,6 +7,8 @@ apiaccesstoken
 Introduction
 ------------
 
+*note*: I no longer support Python 2 and have upgraded this to work with Python 3
+
 Secure token authorisation for Pyramid / Repoze based webapps. It uses
 Mozilla's tokenlib_ to provide strong protection.
 
@@ -36,7 +38,7 @@ To run the example service install Pyramid and then run the webapp e.g.::
     python setup.py develop
 
     # get Pyramid:
-    pip install Pyramid==1.6
+    pip install Pyramid
 
     # Run the webapp
     python example/pyramid_webapp.py
