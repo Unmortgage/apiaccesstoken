@@ -1,7 +1,10 @@
 # -*- coding: utf-8 -*-
 """
 """
+import sys
 from setuptools import setup, find_packages
+from setuptools.command.test import test as TestCommand
+
 
 Name = "apiaccesstoken"
 ProjectUrl = ""
@@ -11,7 +14,7 @@ AuthorEmail = 'oisin mulvihill at gmail'
 Maintainer = Author
 Summary = 'Secure token access to Pyramid / wsgi based web applications.'
 License = 'MIT License'
-with open('README.md') as fd:
+with open('README.rst') as fd:
     Description = fd.read()
 ShortDescription = Summary
 
@@ -47,9 +50,6 @@ EntryPoints = {
     ],
 }
 
-import sys
-from setuptools.command.test import test as TestCommand
-
 
 class PyTest(TestCommand):
     user_options = [('pytest-args=', 'a', "Arguments to pass to py.test")]
@@ -64,7 +64,7 @@ class PyTest(TestCommand):
         self.test_suite = True
 
     def run_tests(self):
-        #import here, cause outside the eggs aren't loaded
+        # import here, cause outside the eggs aren't loaded
         import pytest
         errno = pytest.main(self.pytest_args)
         sys.exit(errno)
