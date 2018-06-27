@@ -8,8 +8,9 @@ from setuptools.command.test import test as TestCommand
 
 Name = "apiaccesstoken"
 ProjectUrl = ""
-Version = "1.2.0"
-Author = 'Oisin Mulvihill'
+with open('VERSION') as fd:
+    Version = fd.read().strip()
+    Author = 'Oisin Mulvihill'
 AuthorEmail = 'oisin mulvihill at gmail'
 Maintainer = Author
 Summary = 'Secure token access to Pyramid / wsgi based web applications.'
@@ -25,10 +26,7 @@ needed = [
     "cmdln",
 ]
 
-test_needed = [
-    "pytest",
-    "pytest-cov",
-]
+test_needed = []
 
 test_suite = 'tests'
 
