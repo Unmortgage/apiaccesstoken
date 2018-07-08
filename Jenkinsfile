@@ -1,26 +1,39 @@
 pipeline {
     agent { node { label 'jenkins-gcp-agent' } }
-
     stages {
         stage('Build & Test') {
             steps {
                 sshagent (credentials: ['jenkins-github-private-key']) {
-                    sh 'make docker_test'
+                    withCredentials([string(credentialsId: 'pypi', variable: 'TWINE_PASSWORD')]) {
+                        sh 'make docker_test'
+                    }
                 }
             }
         }
         stage('Release') {
             steps {
-                withCredentials([string(credentialsId: 'pypi', variable: 'TWINE_PASSWORD')]) {
-                    sh 'make docker_release'
+                sshagent (credentials: ['jenkins-github-private-key']) {
+                    withCredentials([string(credentialsId: 'pypi', variable: 'TWINE_PASSWORD')]) {
+                        sh 'make docker_release'
+                    }
                 }
             }
         }
-    }
-
+        }
     post {
         always {
+            // recover test results
             junit 'tests/*.xml'
+
+            // code coverage reports
+            publishHTML target: [
+                allowMissing: true,
+                alwaysLinkToLastBuild: false,
+                keepAll: true,
+                reportDir: 'htmlcov',
+                reportFiles: 'index.html',
+                reportName: 'Code Coverage'
+            ]
         }
         success {
             notifyBuild 'success'

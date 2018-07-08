@@ -1,2 +1,2 @@
+include VERSION
 include *.txt *.ini *.cfg *.rst
-recursive-include pp *.ico *.png *.css *.gif *.jpg *.pt *.txt *.mak *.mako *.js *.html *.xml

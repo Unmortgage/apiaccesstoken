@@ -18,13 +18,8 @@ License = 'MIT License'
 with open('README.rst') as fd:
     Description = fd.read()
 ShortDescription = Summary
-
-
-needed = [
-    "tokenlib",
-    "requests",
-    "cmdln",
-]
+with open('requirements.txt') as fd:
+    needed = fd.readlines()
 
 test_needed = []
 
